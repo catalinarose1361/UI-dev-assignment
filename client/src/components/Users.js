@@ -123,26 +123,42 @@ function Users() {
         <button onClick={addUser}>ADD USER</button>
 
       </form>
+      <table>
+      <tr>
+    <th>Name</th>
+    <th>Email</th> 
+    <th>City</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  {users.map((user, i) => {
 
-      {users.map((user, i) => {
+return (
 
-        return (
+  <tr key={i}>
 
-          <div key={i}>
+    <td>{user.name}</td>
 
-            <h1>{user.name}</h1>
+    <td>{user.email}</td>
 
-            <p>{user.email}</p>
+    <td>{user.city}</td>
 
-            <p>{user.city}</p>
+    <td>
+    <button>EDIT</button>
+    </td>
+    <td>
+    <button onClick={() => removeUser(i)}>DELETE</button>
+    </td>
 
-            <button onClick={() => removeUser(i)}>DELETE</button>
+   
 
-          </div>
-        
-        )
+  </tr>
 
-      })}
+)
+
+})}
+      </table>
+   
 
     </div>
   );
