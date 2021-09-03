@@ -1,22 +1,9 @@
 import {React, useState, useEffect} from 'react';
 import axios from 'axios';
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  useQuery,
-  gql
-} from "@apollo/client";
 
 
-// const EXCHANGE_RATES = gql`
-//   query  {
-//     rates(currency: "USD") {
-//       currency
-//       rate
-//     }
-//   }
-// `;
+
+
 
 
 
@@ -27,7 +14,13 @@ function Locations() {
     
       locationPublicSettings {
         id,
-        name
+        name,
+        hexcolor,
+        logo,
+        address1,
+        address2,
+        address3,
+        address4
       }
     
   }`
@@ -42,28 +35,33 @@ function Locations() {
 
       }
     }).then((result) => {
-      console.log(result)
-      setApi(result.data.data.locations)
+    
+      setApi(result.data.data.locationPublicSettings)
+      console.log(api)
     })
 
-    console.log(api)
+   
 
   })
   return (
-    <div></div>
+    api.map(data => {
+      return (
+        <div>
+        <p>Location ID: {data.id}</p>
+        <p>Location Name: {data.name}</p>
+        <p>Hex Color Stored: {data.hexcolor}</p>
+        <p>Logo URL: {data.logo}</p>
+        <p>Address:{data.address1} {data.address2}  {data.address3} {data.address4}
+   
+          </p>
+        </div>
+      
+      )
+    })
+
   )
-  // const { loading, error, data } = useQuery(EXCHANGE_RATES);
+  
 
-  // if (loading) return <p>Loading...</p>;
-  // if (error) return <p>Error :(</p>;
-
-  // return data.rates.map(({ currency, rate }) => (
-  //   <div key={currency}>
-  //     <p>
-  //       {currency}: {rate}
-  //     </p>
-  //   </div>
-  // ));
 }
 
 export default Locations;
