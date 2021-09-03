@@ -1,80 +1,135 @@
 import React from "react";
 
-import {useState, useEffect} from 'react'
-
+import { useState } from 'react';
 
 function Users() {
-  //using state which at first is empty but soon will store data collected from our MongoDB 
-  // note the array of objects
+
+  //STATE WILL HOLD ALL USER DATA
   const [users, setUsers] = useState([
+
     {
+
       name: "Catalina",
+
       email: "catalina@catalina.com",
+
       city: "Colorado Springs"
   
     }
+
   ])
-  //saves data to be stored in our database
-  // note only one object
+
+  // THIS STATE STORES NEW USER DATA THAT IS EVENTUALLY ADDED TO "USERS"
   const [user, setUser] = useState(
+
     {
+
       name: " ",
+
       email: " ",
+
       city: " ",
+
     }
+
   )
 
 
-  //handleChange tracks what is being typed 
-  // 'e' has two peices of data, the name and value of inputs
+  
+  //handleChange TRACKS WHAT IS BEING TYPED 
+  // 'e' HAS TWO PEICES OF DATA, THE NAME AND VALUE OF INPUTS
   function handleChange(e) {
+
     const {name, value} = e.target;
+
     setUser(prevInput => {
+
       return(
+
         {
+
           ...prevInput,
+
           [name]: value
+
         }
+
       )
 
     })
+
   }
 
   function addUser(e) {
+
     e.preventDefault();
-    console.log("user added")
-    //gets values from state
+
+    alert("user added")
+
+    //CREATING A NEW OBJECT THAT GETS ITS DATA FROM "user"
     const newUser = {
+
       name: user.name,
+
       email: user.email,
+
       city: user.city
+
     }
+
+    //SETTING STATE "users" TO ADD THE newUser OBJECT AT THE END
     setUsers( users => (
-       [...users,  newUser]
-  ));
+
+      [...users,  newUser]
+
+    ));
+
   }
-// input names are required to parse from body req in our server
-//value is set to whatever value was saved in state for movie
+
+  function removeUser (i) {
+
+    const newData = users
+    newData.splice(i, 1)
+    setUsers(newData)
+    alert("User Removed")
+
+  };
+
+//VALUE IS SET TO VALUE SAVED IN STATE FOR 'user'
   return (
+
     <div className="App">
-      <h1>Add Movie</h1>
+
       <form>
         
         <input onChange={handleChange} name="name" value={user.name}></input>
+
         <input onChange={handleChange} name="email" value={user.email}></input>
+
         <input onChange={handleChange} name="city" value={user.city}></input>
+
         <button onClick={addUser}>ADD USER</button>
+
       </form>
-      {users.map(user => {
+
+      {users.map((user, i) => {
+
         return (
-          <div>
+
+          <div key={i}>
+
             <h1>{user.name}</h1>
+
             <p>{user.email}</p>
+
             <p>{user.city}</p>
-            <button>DELETE</button>
+
+            <button onClick={() => removeUser(i)}>DELETE</button>
+
           </div>
         
         )
+
       })}
 
     </div>

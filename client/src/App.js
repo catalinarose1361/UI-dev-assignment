@@ -1,23 +1,23 @@
 import React from 'react';
-import Locations from './components/Locations'
-import Users from './components/Users'
 
+import Locations from './components/Locations';
 
+import Users from './components/Users';
 
 function App() {
 
-    return (
+  return (
   
-      <div>
-  
-        <h2>My first Apollo app 🚀</h2>
-       <Users />
-        <Locations />
+    <div>
+      
+      <Users />
+
+      <Locations />
         
+    </div>
   
-      </div>
+  );
   
-    );
-  
-  }
+}
+
 export default App;

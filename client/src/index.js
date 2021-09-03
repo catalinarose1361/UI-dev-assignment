@@ -23,21 +23,15 @@ const client = new ApolloClient({
 });
 
 
-
-
-
-
 render(
 
-  
   <ApolloProvider client={client}>
+
     <App />
-  </ApolloProvider>
-    
 
-  ,
+  </ApolloProvider>,
 
-  document.getElementById('root'),
+  document.getElementById('root')
 
 );
 
