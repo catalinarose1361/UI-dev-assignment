@@ -4,17 +4,29 @@ import Locations from './components/Locations';
 
 import Users from './components/Users';
 
-function App() {
+import { Grid, Typography, Paper, Button } from '@material-ui/core';
+import {ThemeProvider, createTheme} from '@material-ui/core/styles';
 
+function App() {
+  const theme = createTheme({
+    palette: {
+      type: "dark"
+    }
+  })
   return (
   
-    <div>
+    <ThemeProvider theme={theme}>
+      <Paper>
+      <div>
       
       <Users />
 
       <Locations />
         
     </div>
+      </Paper>
+    </ThemeProvider>
+  
   
   );
   
