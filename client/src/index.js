@@ -4,32 +4,32 @@ import { render } from 'react-dom';
 
 import App from './App.js'
 
-import {
+// import {
 
-  ApolloClient,
+//   ApolloClient,
 
-  InMemoryCache,
+//   InMemoryCache,
 
-  ApolloProvider,
+//   ApolloProvider,
 
-} from "@apollo/client";
+// } from "@apollo/client";
 
-const client = new ApolloClient({
+// const client = new ApolloClient({
 
-  uri: 'https://48p1r2roz4.sse.codesandbox.io',
+//   uri: 'https://48p1r2roz4.sse.codesandbox.io',
 
-  cache: new InMemoryCache()
+//   cache: new InMemoryCache()
 
-});
+// });
 
 
 render(
 
-  <ApolloProvider client={client}>
+  // <ApolloProvider client={client}>
 
-    <App />
+    <App />,
 
-  </ApolloProvider>,
+  // </ApolloProvider>,
 
   document.getElementById('root')
 

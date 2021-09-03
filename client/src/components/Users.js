@@ -83,17 +83,29 @@ function Users() {
       [...users,  newUser]
 
     ));
+    
 
   }
 
   function removeUser (i) {
-
+   
     const newData = users
     newData.splice(i, 1)
     setUsers(newData)
     alert("User Removed")
 
   };
+
+  // function editUser (i) {
+  //   let data = users[i]
+  //   this.refs.name.value = data.name
+  //   this.refs.email.value = data.email
+  //   this.refs.city.value = data.city
+
+  //   setUsers({act: 1, index: i})
+
+  //   this.refs.name.focus()
+  // }
 
 //VALUE IS SET TO VALUE SAVED IN STATE FOR 'user'
   return (
