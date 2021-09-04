@@ -2,6 +2,7 @@ import React from "react";
 
 import { useState } from 'react';
 import Button from '@material-ui/core/Button';
+import Input from '@material-ui/core/Input';
 function Users() {
 
   //STATE WILL HOLD ALL USER DATA
@@ -114,11 +115,11 @@ function Users() {
 
       <form>
         
-        <input onChange={handleChange} name="name" value={user.name}></input>
+        <Input onChange={handleChange} name="name" value={user.name}></Input>
 
-        <input onChange={handleChange} name="email" value={user.email}></input>
+        <Input onChange={handleChange} name="email" value={user.email}></Input>
 
-        <input onChange={handleChange} name="city" value={user.city}></input>
+        <Input onChange={handleChange} name="city" value={user.city}></Input>
 
         <Button onClick={addUser}>ADD USER</Button>
 
