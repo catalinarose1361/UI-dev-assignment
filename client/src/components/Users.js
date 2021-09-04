@@ -1,13 +1,40 @@
 import React from "react";
 
 import { useState } from 'react';
+
 import Button from '@material-ui/core/Button';
+
 import Input from '@material-ui/core/Input';
+
+import Card from '@material-ui/core/Card';
+
+import { Grid, Paper } from '@material-ui/core';
+import Table from '@material-ui/core/Table'
+import TableRow from '@material-ui/core/TableRow';
+import TableCell from '@material-ui/core/TableCell'
 function Users() {
 
   //STATE WILL HOLD ALL USER DATA
   const [users, setUsers] = useState([
 
+    {
+
+      name: "Catalina",
+
+      email: "catalina@catalina.com",
+
+      city: "Colorado Springs"
+  
+    },
+    {
+
+      name: "Catalina",
+
+      email: "catalina@catalina.com",
+
+      city: "Colorado Springs"
+  
+    },
     {
 
       name: "Catalina",
@@ -84,7 +111,7 @@ function Users() {
       [...users,  newUser]
 
     ));
-    
+    setUser({});
 
   }
 
@@ -111,57 +138,63 @@ function Users() {
 //VALUE IS SET TO VALUE SAVED IN STATE FOR 'user'
   return (
 
-    <div className="App">
-
-      <form>
+<Grid colum  >
+              
+             
+                    <form>
+        <text>Name:</text>
+        <Input onChange={handleChange} placeholder="Name" name="name" value={user.name}></Input>
+        <text>Email:</text>
+        <Input onChange={handleChange} placeholder="Email" name="email" value={user.email}></Input>
+        <text>City:</text>
+        <Input onChange={handleChange} placeholder="City" name="city" value={user.city}></Input>
         
-        <Input onChange={handleChange} name="name" value={user.name}></Input>
-
-        <Input onChange={handleChange} name="email" value={user.email}></Input>
-
-        <Input onChange={handleChange} name="city" value={user.city}></Input>
-
         <Button onClick={addUser}>ADD USER</Button>
 
       </form>
-      <table>
-      <tr>
-    <th>Name</th>
-    <th>Email</th> 
-    <th>City</th>
-    <th>Edit</th>
-    <th>Delete</th>
-  </tr>
+
+              
+                   
+            
+
+ 
+               
+                    <Table>
+ 
   {users.map((user, i) => {
 
 return (
 
-  <tr key={i}>
+  <TableRow key={i}>
 
-    <td>{user.name}</td>
+    <TableCell>{user.name}</TableCell>
 
-    <td>{user.email}</td>
+    <TableCell>{user.email}</TableCell>
 
-    <td>{user.city}</td>
+    <TableCell>{user.city}</TableCell>
 
-    <td>
+    <TableCell>
     <Button>EDIT</Button>
-    </td>
-    <td>
+    </TableCell>
+    <TableCell>
     <Button onClick={() => removeUser(i)}>DELETE</Button>
-    </td>
+    </TableCell>
 
    
 
-  </tr>
+  </TableRow>
 
 )
 
 })}
-      </table>
-   
+      </Table>
+         
+             
+                    
+</Grid>
+  
 
-    </div>
+
   );
 }
 

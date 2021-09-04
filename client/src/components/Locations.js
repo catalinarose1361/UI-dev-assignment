@@ -8,6 +8,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import Table from '@material-ui/core/Table'
+
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
@@ -71,7 +73,7 @@ function Locations() {
         
    
 
-        <Card centered={true} className={classes.root}>
+        <Card alignContent="center" className={classes.root}>
       <CardContent>
         <Typography className={classes.title}  >
         Location ID: {data.id}
