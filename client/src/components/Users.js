@@ -6,9 +6,9 @@ import Button from '@material-ui/core/Button';
 
 import Input from '@material-ui/core/Input';
 
-import Card from '@material-ui/core/Card';
 
-import { Grid, Paper } from '@material-ui/core';
+
+import { Grid, Paper, Form } from '@material-ui/core';
 import Table from '@material-ui/core/Table'
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell'
@@ -124,16 +124,9 @@ function Users() {
 
   };
 
-  // function editUser (i) {
-  //   let data = users[i]
-  //   this.refs.name.value = data.name
-  //   this.refs.email.value = data.email
-  //   this.refs.city.value = data.city
-
-  //   setUsers({act: 1, index: i})
-
-  //   this.refs.name.focus()
-  // }
+  function editUser (i) {
+    alert("This feature is not yet operational")
+  }
 
 //VALUE IS SET TO VALUE SAVED IN STATE FOR 'user'
   return (
@@ -143,13 +136,13 @@ function Users() {
              
                     <form>
         <text>Name:</text>
-        <Input onChange={handleChange} placeholder="Name" name="name" value={user.name}></Input>
+        <Input onChange={handleChange}placeholder="Name" name="name" value={user.name}></Input>
         <text>Email:</text>
         <Input onChange={handleChange} placeholder="Email" name="email" value={user.email}></Input>
         <text>City:</text>
         <Input onChange={handleChange} placeholder="City" name="city" value={user.city}></Input>
         
-        <Button onClick={addUser}>ADD USER</Button>
+        <Button color="default" onClick={addUser}>ADD USER</Button>
 
       </form>
 
@@ -174,10 +167,10 @@ return (
     <TableCell>{user.city}</TableCell>
 
     <TableCell>
-    <Button>EDIT</Button>
+    <Button color="secondary" onClick={() => editUser(i)}>EDIT</Button>
     </TableCell>
     <TableCell>
-    <Button onClick={() => removeUser(i)}>DELETE</Button>
+    <Button color="primary" onClick={() => removeUser(i)}>DELETE</Button>
     </TableCell>
 
    
