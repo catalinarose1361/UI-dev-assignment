@@ -4,7 +4,7 @@ import Locations from './Locations';
 
 import Users from './Users';
 
-import { Grid, Typography, Paper, Button } from '@material-ui/core';
+import { Grid, Typography, Paper, Button, Container } from '@material-ui/core';
 import {ThemeProvider, createTheme} from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
 
@@ -22,9 +22,16 @@ function DarkMode () {
       })
     return(
         <ThemeProvider theme={theme}>
+            <Container>
      
-            <Grid  container>
-                <Grid item>
+            <Grid direction="column" justify="center"  container>
+            <Grid  style={{textAlign: "center"}}item sm={12}>
+              
+              <Switch item={true} checked={darkMode} onChange={() => setDarkMode(!darkMode)} name="checkedA" />
+      
+              
+              </Grid>
+                <Grid style={{textAlign: "center", marginBottom: "20px"}} item sm={12}>
                    
                         <Paper>
                             <Locations item={true} />
@@ -33,7 +40,7 @@ function DarkMode () {
                   
                 </Grid>
              
-                <Grid  item >
+                <Grid style={{textAlign: "center"}}  item sm={12} >
                  
                     <Paper>
                     <Users item={true} />  
@@ -43,12 +50,7 @@ function DarkMode () {
 
                   
                     </Grid>
-                <Grid  item>
-              
-                    <Switch item={true} checked={darkMode} onChange={() => setDarkMode(!darkMode)} name="checkedA" />
-            
-                    
-                    </Grid>
+               
          
             {/* <Users item={true} /> */}
   
@@ -63,7 +65,7 @@ function DarkMode () {
         
        
       
-        {/* </Paper> */}
+        </Container>
       </ThemeProvider>
 
     )
