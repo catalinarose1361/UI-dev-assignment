@@ -1,14 +1,36 @@
 import {React, useState, useEffect} from 'react';
 import axios from 'axios';
-
-
-
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+const useStyles = makeStyles({
+  root: {
+    minWidth: 275,
+  },
+  bullet: {
+    display: 'inline-block',
+    margin: '0 2px',
+    transform: 'scale(0.8)',
+  },
+  title: {
+    fontSize: 14,
+  },
+  pos: {
+    marginBottom: 12,
+  },
+});
 
 
 
 
 function Locations() {
-
+  const classes = useStyles();
+  const bull = <span className={classes.bullet}>•</span>;
   const [api, setApi] = useState([]);
   const query = `{
     
@@ -46,17 +68,32 @@ function Locations() {
   return (
     api.map(data => {
       return (
-        <div>
-        <p>Location ID: {data.id}</p>
-        <p>Location Name: {data.name}</p>
-        <p>Hex Color Stored: {data.hexcolor}</p>
-        <p>Logo URL: {data.logo}</p>
-        <p>Address:{data.address1} {data.address2}  {data.address3} {data.address4}
+        
    
-          </p>
-        </div>
-      
+
+        <Card centered={true} className={classes.root}>
+      <CardContent>
+        <Typography className={classes.title}  >
+        Location ID: {data.id}
+        </Typography>
+        <Typography className={classes.title}  >
+        Location Name: {data.name}
+        </Typography>
+        <Typography className={classes.title}  >
+        Hex Color Stored: {data.hexcolor}
+        </Typography>
+        <Typography className={classes.title}  >
+        Logo URL: {data.logo}
+        </Typography>
+        <Typography className={classes.title}  >
+        Address:{data.address1} {data.address2}  {data.address3} {data.address4}
+        </Typography>
+      </CardContent>
+  
+    </Card>
+  
       )
+    
     })
 
   )

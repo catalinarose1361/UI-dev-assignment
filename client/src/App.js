@@ -7,6 +7,11 @@ import Users from './components/Users';
 import { Grid, Typography, Paper, Button } from '@material-ui/core';
 import {ThemeProvider, createTheme} from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
+
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
 function App() {
 
 

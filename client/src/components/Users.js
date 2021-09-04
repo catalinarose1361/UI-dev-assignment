@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useState } from 'react';
-
+import Button from '@material-ui/core/Button';
 function Users() {
 
   //STATE WILL HOLD ALL USER DATA
@@ -120,7 +120,7 @@ function Users() {
 
         <input onChange={handleChange} name="city" value={user.city}></input>
 
-        <button onClick={addUser}>ADD USER</button>
+        <Button onClick={addUser}>ADD USER</Button>
 
       </form>
       <table>
@@ -144,10 +144,10 @@ return (
     <td>{user.city}</td>
 
     <td>
-    <button>EDIT</button>
+    <Button>EDIT</Button>
     </td>
     <td>
-    <button onClick={() => removeUser(i)}>DELETE</button>
+    <Button onClick={() => removeUser(i)}>DELETE</Button>
     </td>
 
    
