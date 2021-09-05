@@ -103,7 +103,7 @@ function Users() {
 
     ));
 
-    setUser({});
+    setUser(" ");
 
   }
 

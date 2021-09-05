@@ -12,6 +12,8 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
+import WbSunnyIcon from '@material-ui/icons/WbSunny';
+import Brightness3Icon from '@material-ui/icons/Brightness3';
 //DARK MODE CONTAINS THEMING AND GRID ELEMENTS FOR THE APP
 function DarkMode () {
     const [darkMode, setDarkMode] = useState(false)
@@ -26,9 +28,9 @@ function DarkMode () {
      
             <Grid direction="column" justify="center"  container>
             <Grid  style={{textAlign: "center"}}item sm={12}>
-              
+              <WbSunnyIcon />
               <Switch item={true} checked={darkMode} onChange={() => setDarkMode(!darkMode)} name="checkedA" />
-      
+              <Brightness3Icon />
               
               </Grid>
                 <Grid style={{textAlign: "center", marginBottom: "20px"}} item sm={12}>
