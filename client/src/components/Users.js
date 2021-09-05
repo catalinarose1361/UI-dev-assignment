@@ -121,7 +121,7 @@ function Users() {
 
   function editUser (i) {
 
-    alert("This feature is not yet operational")
+    alert("User Edited")
     const editUser = {
 
       name: user.name,
