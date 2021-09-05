@@ -8,6 +8,8 @@ import CardContent from '@material-ui/core/CardContent';
 
 import Typography from '@material-ui/core/Typography';
 
+
+
 function Locations() {
 
   //THIS STATE STORES INFORMATION QUERIED FROM THE API
@@ -42,7 +44,7 @@ function Locations() {
 
     axios({
 
-      url: 'https://backendtest.balancescheduler.com/graphql',
+      url: "https://backendtest.balancescheduler.com/graphql",
 
       method: 'post',
 
