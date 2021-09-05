@@ -1,17 +1,8 @@
-import React from "react";
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 
-import Button from '@material-ui/core/Button';
+import { Grid, Button, Input, Table, TableRow, TableCell } from '@material-ui/core';
 
-import Input from '@material-ui/core/Input';
-
-
-
-import { Grid, Paper, Form } from '@material-ui/core';
-import Table from '@material-ui/core/Table'
-import TableRow from '@material-ui/core/TableRow';
-import TableCell from '@material-ui/core/TableCell'
 function Users() {
 
   //STATE WILL HOLD ALL USER DATA
@@ -26,20 +17,22 @@ function Users() {
       city: "Colorado Springs"
   
     },
+
     {
 
-      name: "Catalina",
+      name: "Matthew",
 
-      email: "catalina@catalina.com",
+      email: "matthew@matthew.com",
 
       city: "Colorado Springs"
   
     },
+
     {
 
-      name: "Catalina",
+      name: "Elle",
 
-      email: "catalina@catalina.com",
+      email: "elle@elle.com",
 
       city: "Colorado Springs"
   
@@ -62,8 +55,6 @@ function Users() {
 
   )
 
-
-  
   //handleChange TRACKS WHAT IS BEING TYPED 
   // 'e' HAS TWO PEICES OF DATA, THE NAME AND VALUE OF INPUTS
   function handleChange(e) {
@@ -111,6 +102,7 @@ function Users() {
       [...users,  newUser]
 
     ));
+
     setUser({});
 
   }
@@ -118,190 +110,170 @@ function Users() {
   function removeUser (i) {
    
     const newData = users
+
     newData.splice(i, 1)
+
     setUsers(newData)
+
     alert("User Removed")
 
   };
 
   function editUser (i) {
+
     alert("This feature is not yet operational")
+
   }
 
-//VALUE IS SET TO VALUE SAVED IN STATE FOR 'user'
+  //VALUE IS SET TO VALUE SAVED IN STATE FOR 'user'
   return (
 
-<Grid colum  >
-              
-             
-                    <form>
-        <text>Name:</text>
-        <Input onChange={handleChange}placeholder="Name" name="name" value={user.name}></Input>
-        <text>Email:</text>
-        <Input onChange={handleChange} placeholder="Email" name="email" value={user.email}></Input>
-        <text>City:</text>
-        <Input onChange={handleChange} placeholder="City" name="city" value={user.city}></Input>
+    <Grid colum  >
+                   
+      <form>
+
+        <text>
+
+          Name:
+
+        </text>
+
+        <Input 
+
+          onChange={handleChange}
+
+          placeholder="Name" 
+
+          name="name" 
+
+          value={user.name}
+
+        />
+
+        <text>
+
+          Email:
+
+        </text>
+
+        <Input 
+
+          onChange={handleChange} 
+
+          placeholder="Email" 
+
+          name="email" 
+
+          value={user.email}
+
+        />
+
+        <text>
+
+          City:
+
+        </text>
+
+        <Input 
+
+          onChange={handleChange}
+
+          placeholder="City" 
+
+          name="city" 
+
+          value={user.city}
+
+        />
         
-        <Button color="default" onClick={addUser}>ADD USER</Button>
+        <Button 
+
+          color="default" 
+
+          onClick={addUser}
+
+        >
+
+          ADD USER
+
+        </Button>
 
       </form>
-
-              
-                   
-            
-
+      
+      <Table>
  
-               
-                    <Table>
- 
-  {users.map((user, i) => {
+        {users.map((user, i) => {
 
-return (
+          return (
 
-  <TableRow key={i}>
+            <TableRow 
 
-    <TableCell>{user.name}</TableCell>
+              key={i}
 
-    <TableCell>{user.email}</TableCell>
+            >
 
-    <TableCell>{user.city}</TableCell>
+              <TableCell>
 
-    <TableCell>
-    <Button color="secondary" onClick={() => editUser(i)}>EDIT</Button>
-    </TableCell>
-    <TableCell>
-    <Button color="primary" onClick={() => removeUser(i)}>DELETE</Button>
-    </TableCell>
+                {user.name}
 
-   
+              </TableCell>
 
-  </TableRow>
+              <TableCell>
 
-)
+                {user.email}
 
-})}
+              </TableCell>
+
+              <TableCell>
+
+                {user.city}
+
+              </TableCell>
+
+              <TableCell>
+
+                <Button 
+
+                  color="secondary" 
+
+                  onClick={() => editUser(i)}
+
+                >
+
+                  EDIT
+
+                </Button>
+
+              </TableCell>
+
+              <TableCell>
+
+                <Button 
+
+                color="primary" 
+
+                onClick={() => removeUser(i)}
+
+                >
+
+                  DELETE
+
+                </Button>
+
+              </TableCell>
+
+            </TableRow>
+
+          )
+
+        })}
+
       </Table>
-         
-             
-                    
-</Grid>
+                         
+    </Grid>
   
-
-
   );
+
 }
-
-
-// export default class Users extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       newItem:'' , 
-//       items: [
-//         { name: "John", dob: "2020-03" },
-//         { name: "Key", dob: "2010-07" },
-//         { name: "Mo", dob: "2000-08" }
-//       ],
-//       currentItem: {},
-//       currentIndex: -1,
-//       editMode: false
-//     };
-//     this.dataChanged = this.dataChanged.bind(this);
-//     this.handleEdit = this.handleEdit.bind(this);
-//     this.handleDelete = this.handleDelete.bind(this);
-//     this.handleEditCancel = this.handleEditCancel.bind(this);
-//     this.handleUpdate = this.handleUpdate.bind(this);
-//   }
-//   handleEdit(index) {
-//     this.setState({
-//       currentIndex: index,
-//       editMode: true,
-//       currentItem: { ...this.state.items[index] }
-//     });
-//   }
-//   handleDelete(key) {
-//     this.setState({
-//       items: this.state.items.filter((a, i) => i !== key)
-//     });
-//   }
-//   handleEditCancel(e) {
-//     this.setState({
-//       currentIndex: -1,
-//       editMode: false,
-//       currentItem: {}
-//     });
-//     e.preventDefault();
-//   }
-//   handleUpdate() {
-//     let items = this.state.items;
-//     items[this.state.currentIndex] = { ...this.state.currentItem };
-//     this.setState({
-//       currentIndex: -1,
-//       editMode: false,
-//       currentItem: {},
-//       items: items
-//     });
-//   }
-//   dataChanged(event){
-//     let field = event.target.name;
-//     let currentItem = {...this.state.currentItem};
-//     currentItem[field] = event.target.value;
-//     this.setState({currentItem: {...currentItem}});
-//   }
-
-
-//   render() {
-//     return (
-//       <div className="App">
- 
-
-
-//         <ul>
-//           {this.state.items.map((item, key) => (
-//             <li key={key}>
-//               <span> {item.name} </span>
-//               <span> {item.dob} </span>
-//               <button
-//                 className="btn btn-light"
-//                 onClick={() => this.handleEdit(key)}
-//               >
-//                 edit
-//               </button>
-//               <button
-//                 className="btn btn-danger"
-//                 onClick={() => this.handleDelete(key)}
-//               >
-//                 delete
-//               </button>
-//             </li>
-//           ))}
-//         </ul>
-//         {this.state.editMode && (
-//           <form onSubmit={this.handleUpdate}>
-//             <input
-//               className=""
-//               name="name"
-//               value={this.state.currentItem.name}
-//               onChange={this.dataChanged}
-//               placeholder="Celebrant's Name"
-//               ref={name => (this.name = name)}
-//               required
-//             />
-//             <input
-//               className=""
-//               name="dob"
-//               onChange={this.dataChanged}
-//               value={this.state.currentItem.dob}
-//               type="month"
-//             />
-
-//             <button type="submit">update</button>
-//             <button onClick={e => this.handleEditCancel(e)}>cancel</button>
-//           </form>
-//         )}
-//       </div>
-//     );
-//   }
-// }
 
 export default Users
