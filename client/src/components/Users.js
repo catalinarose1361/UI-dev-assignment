@@ -122,6 +122,20 @@ function Users() {
   function editUser (i) {
 
     alert("This feature is not yet operational")
+    const editUser = {
+
+      name: user.name,
+
+      email: user.email,
+
+      city: user.city
+
+    }
+    users.splice(i, 1)
+    setUsers([...users, editUser])
+
+
+    
 
   }
 

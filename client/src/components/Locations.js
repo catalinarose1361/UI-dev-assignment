@@ -72,31 +72,31 @@ function Locations() {
 
             <Typography>
 
-              Location ID: {data.id}
+              LOCATION ID: {data.id}
 
             </Typography>
 
             <Typography>
 
-              Location Name: {data.name}
+              LOCATION NAME:  {data.name}
 
             </Typography>
 
             <Typography>
 
-              Hex Color Stored: {data.hexcolor}
+             HEX COLOR STORED: {data.hexcolor}
 
             </Typography>
 
             <Typography>
 
-              Logo URL: {data.logo}
+              LOGO URL: {data.logo}
 
             </Typography>
 
             <Typography>
 
-              Address:{data.address1} {data.address2}  {data.address3} {data.address4}
+              ADDRESS:{data.address1} {data.address2}  {data.address3} {data.address4}
 
             </Typography>
 
