@@ -40,6 +40,7 @@ function Users() {
 
   ])
 
+
   // THIS STATE STORES NEW USER DATA THAT IS EVENTUALLY ADDED TO "USERS"
   const [user, setUser] = useState(
 
@@ -54,6 +55,10 @@ function Users() {
     }
 
   )
+
+
+
+
 
   //handleChange TRACKS WHAT IS BEING TYPED 
   // 'e' HAS TWO PEICES OF DATA, THE NAME AND VALUE OF INPUTS
@@ -119,7 +124,7 @@ function Users() {
 
   };
 
-  function editUser (i) {
+  function updateUser (i) {
 
     alert("User Edited")
     const editUser = {
@@ -131,13 +136,16 @@ function Users() {
       city: user.city
 
     }
-    users.splice(i, 1)
-    setUsers([...users, editUser])
 
+    let users2 = [ ...users ];
+    users2[i] = {...users[i], name: user.name, email: user.email, city: user.city};
+    setUsers(users2)
+  }
+   
 
     
 
-  }
+  
 
   //VALUE IS SET TO VALUE SAVED IN STATE FOR 'user'
   return (
@@ -208,7 +216,7 @@ function Users() {
 
         >
 
-          ADD USER
+        ADD USER
 
         </Button>
 
@@ -225,10 +233,13 @@ function Users() {
               key={i}
 
             >
-
+           
+              
               <TableCell>
 
-                {user.name}
+              {user.name}
+
+                
 
               </TableCell>
 
@@ -249,8 +260,7 @@ function Users() {
                 <Button 
 
                   color="secondary" 
-
-                  onClick={() => editUser(i)}
+                  onClick={() => updateUser(i)}
 
                 >
 
@@ -275,9 +285,16 @@ function Users() {
                 </Button>
 
               </TableCell>
+           
 
+  
+
+        
+
+
+       
             </TableRow>
-
+              
           )
 
         })}
